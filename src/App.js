@@ -14,7 +14,9 @@
 import './App.css';
 import Home from './Components/Home.js';
 import { Routes, Route } from "react-router-dom";
-import Images from './Components/Images.js'
+import Images from './Components/Images.js';
+import Signup from './Components/Signup.js';
+import Login from './Components/Login.js';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Routes>
       <Route path="/" element={<Images/>} />
         <Route path="/home" element={<Home/>} />
+        <Route path="/signup" element={<Signup/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </div>
   );

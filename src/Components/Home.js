@@ -31,7 +31,7 @@ function Home() {
           var imageurl = {
             imageURL: downloadURL
           }
-          await setDoc(doc(db,"url",'name2'),imageurl);
+          await setDoc(doc(db,"url",'name3'),imageurl);
        
         })
       }

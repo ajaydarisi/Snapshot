@@ -8,7 +8,7 @@ function Images() {
 
     const fun = async() => {
         var data1 = [];
-        const querySnapshot = await getDocs(collection(db, "url"));
+        const querySnapshot = await getDocs(collection(db, "urls"));
         querySnapshot.forEach((doc) => {
             data1.push(doc.data());
         });
