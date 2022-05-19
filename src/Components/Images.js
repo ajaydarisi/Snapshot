@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from "firebase/firestore";
-import { db } from './Firebase.js'
+import { db } from './Firebase.js';
+import { useLocation } from "react-router-dom";
+
 
 function Images() {
-
+  const location = useLocation();
     var [data,setData] = useState([]);
 
     const fun = async() => {
         var data1 = [];
-        const querySnapshot = await getDocs(collection(db, "urls"));
+        const querySnapshot = await getDocs(collection(db, location.state.email));
         querySnapshot.forEach((doc) => {
             data1.push(doc.data());
         });
