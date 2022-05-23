@@ -3,12 +3,14 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { db, storage } from "./Firebase.js";
 import { doc, setDoc, collection, getDocs } from "firebase/firestore";
 import { useLocation } from "react-router-dom";
+// import { saveAs } from 'file-saver';
+
 
 function Home() {
   const location = useLocation();
   var [data, setData] = useState([]);
 
-  const fun = async () => {
+  const fun1 = async () => {
     var data1 = [];
     const querySnapshot = await getDocs(collection(db, location.state.email));
     querySnapshot.forEach((doc) => {
@@ -17,7 +19,7 @@ function Home() {
     setData(data1);
   };
   useEffect(() => {
-    fun();
+    fun1();
   }, []);
 
   const handleSubmit = (e) => {
@@ -49,6 +51,12 @@ function Home() {
       }
     );
   };
+
+  // const downloadImage = (e) => {
+  //   console.log(e);
+  //   saveAs('asdfg', e) 
+  // }
+
   return (
     <div>
       <form onSubmit={handleSubmit} className="form">
@@ -65,3 +73,5 @@ function Home() {
 }
 
 export default Home;
+
+{/* <button onClick={downloadImage(l.imageURL)}>Download!</button> */}

@@ -1,0 +1,147 @@
+.main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #242526;
+  font-family: 'poppins';
+  letter-spacing: 3;
+}
+
+.leftDiv {
+  display: flex;
+  width: 60%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  /* background-color: red; */
+}
+
+.leftInner {
+  display: flex;
+  width: 56%;
+  height: 30%;
+  /* background-color: #fff; */
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  height: 70%;
+  /* background-color: violet; */
+}
+
+.image {
+  display: flex;
+  width: 27%;
+  height: 100%;
+  align-items: center;
+  
+  /* background-color: orange; */
+}
+
+.titleInner {
+  display: flex;
+  width: 73%;
+  height: 100%;
+  flex-direction: column;
+  color: #fff;
+  /* background-color: brown;  */
+}
+
+.snapshots {
+  margin-top: -15px;
+  font-size: 450%;
+  color: #F5B301;
+}
+
+.extra {
+  color: #fff;
+}
+
+.caption {
+  display: flex;
+  width: 100%;
+  padding-left: 20px;
+  height: 30%;
+  /* background-color: yellow; */
+  color: #fff;
+}
+
+.rightDiv {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.rightInner {
+  display: flex;
+  width: 56%;
+  height: 65%;
+  border-radius: 20px;
+  background-color: #fff; 
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  width: 100%;
+  height: 33%;
+  border-radius:20px 20px 0 0 ;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 40px;
+  font-size: 30px;
+  /* background-color: purple; */
+}
+
+.snaplogo {
+  border-radius: 100%;
+}
+
+.credentials {
+  display: flex;
+  width: 100%;
+  height: 67%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* background-color: grey; */
+  border-radius:0 0 20px 20px;
+}
+
+.in1 {
+  all: unset;
+  letter-spacing: 3;
+  border-radius: 20px;
+  background-color: #F2F2F2;
+  color: #929292;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  border: none;
+  width: 65%;
+  padding: 15px;
+}
+
+.submit {
+  all: unset;
+  padding: 13px 50px;
+  border-radius: 100px;
+  background-color: #F5B301;
+}
+
+.login {
+  color: #fff;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.register {
+  color: #F5B301;
+  font-size: larger;
+  text-decoration: none;
+}
