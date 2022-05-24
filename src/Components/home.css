@@ -120,6 +120,8 @@
 .images {
     float:left;
     margin: 0 0 0 0.2rem ;
+    cursor: pointer;
+
     /* border-radius: 10px; */
 }
 
@@ -127,6 +129,7 @@
     width: 18.95rem;
     height: 16rem;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .logout {

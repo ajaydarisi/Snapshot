@@ -127,6 +127,7 @@
   padding: 13px 50px;
   border-radius: 100px;
   background-color: #F5B301;
+  cursor: pointer;
 }
 
 .login {

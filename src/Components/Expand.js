@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
+import Snaplogo from '../Images/SNAPLOGO.png';
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { getAuth, signOut } from "firebase/auth";
 import { db, storage } from "./Firebase.js";
-import { doc, setDoc, collection, getDocs } from "firebase/firestore";
-// import { Routes, Route } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
-import Snaplogo from '../Images/SNAPLOGO.png'
-import "./home.css";
-// import { saveAs } from 'file-saver';
+import { doc, setDoc} from "firebase/firestore";
+import './expand.css';
 
-function Home() {
+
+function Expand() {
   const location = useLocation();
   let navigate = useNavigate();
   const auth = getAuth();
-  var [data, setData] = useState([]);
-
-  const fun1 = async () => {
-    var data1 = [];
-    const querySnapshot = await getDocs(collection(db, location.state.email));
-    querySnapshot.forEach((doc) => {
-      data1.push(doc.data());
-    });
-    setData(data1);
-  };
-  useEffect(() => {
-    fun1();
-  }, []);
-
   const handleSubmit = (e) => {
     // e.preventDefault();
     const file = e.target.files[0];
@@ -57,24 +42,17 @@ function Home() {
       }
     );
   };
-   const signout = () => {
-      signOut(auth).then(() => {
-          // Sign-out successful.
-          navigate("/");
-        }).catch((error) => {
-          // An error happened.
-        });
+  const signout = () => {
+    signOut(auth).then(() => {
+        // Sign-out successful.
+        navigate("/");
+      }).catch((error) => {
+        // An error happened.
+      });
+}
+  const goBack = () => {
+    navigate("/home",{ state: {email:location.state.email}});
   }
-
-  const expand = (e) => {
-      navigate("/expand",{state:{imageURL: e.target.src,email:location.state.email}});
-  }
-
-  // const downloadImage = (e) => {
-  //   console.log(e);
-  //   saveAs('asdfg', e)
-  // }
-
   return (
     <div className="home">
       <div className="nav">
@@ -118,32 +96,15 @@ function Home() {
         </div>
       </div>
       <div className="cards">
-        <h1 className="yourImages">Your Images</h1>
-        {data.map((l) => ( l.imageURL? (
-          <div key={l.imageURL} className="images" onClick={expand}>
-            <img
-              src={l.imageURL}
-              alt="Not found"
-              className="imag"
-            />
-          </div>):( <p></p>)
-        ))}
+            <div className="date">
+
+            </div>
+            <div className="bigimage">
+                <img className="Img" src={location.state.imageURL} alt="Not found" onClick={goBack}/>
+            </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
-
-// {/* 
-// //       {data.map((l) => (
-// //         <div key={l.imageURL} className="images">
-// //           <img
-// //             src={l.imageURL}
-// //             alt="Not found"
-// //             width="300"
-// //             height="300"
-// //             className="imag"
-// //           />
-// //         </div>
-// //       ))} */}
+export default Expand;
