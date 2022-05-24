@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 // import login from '../Images/login.png';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import "./login.css";
 import Logo from "../Images/SNAPLOGO.png";
 import Icon from "../Images/Icon.png";
@@ -13,12 +13,15 @@ function Login() {
   const auth = getAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const Submit = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
         console.log("Success", user);
+        setEmail("");
+        setPassword("");
         navigate("/home", { state: { email: email } });
         // ...
       })
@@ -30,17 +33,32 @@ function Login() {
       });
   };
 
+  const handleKeypress = (e) => {
+    //it triggers by pressing the enter key
+    if (e.keyCode === 13) {
+      Submit();
+    }
+  };
+
   return (
     <div className="main">
       <div className="leftDiv">
         <div className="leftInner">
           <div className="title">
             <div className="image">
-              <img src={Icon} alt="Icon" width="150" height="150" />
+              <img
+                src={Icon}
+                alt="Icon"
+                width="150"
+                height="150"
+                className="icon"
+              />
             </div>
             <div className="titleInner">
               <div className="welcome">
                 <h1>Welcome to</h1>
+              </div>
+              <div>
                 <h1 className="snapshots">Snapshots</h1>
               </div>
             </div>
@@ -69,6 +87,7 @@ function Login() {
               className="in1"
               placeholder="Email Address"
               onChange={(e) => setEmail(e.target.value)}
+              value={email}
             />
             <br />
             <input
@@ -77,14 +96,18 @@ function Login() {
               className="in1"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              onKeyPress={handleKeypress}
             />
             <br />
             <button className="submit" onClick={Submit}>
               <span className="login">Login</span>
             </button>
             <p>
-              New User? 
-              <Link to='/signup'><span className="register"> Register</span></Link>
+              New User?
+              <Link to="/signup">
+                <span className="register"> Register</span>
+              </Link>
             </p>
           </div>
         </div>
