@@ -22,7 +22,7 @@ function Login() {
         console.log("Success", user);
         setEmail("");
         setPassword("");
-        navigate("/home", { state: { email: email } });
+        navigate("/home", { state: { email: email} });
         // ...
       })
       .catch((error) => {

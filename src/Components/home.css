@@ -1,0 +1,262 @@
+.upfile {
+    display: none;
+}
+
+/* .upload {
+    border: 1px solid #F5B301;
+    margin-top:20px;
+    padding: 20px 30px;
+    border-radius: 20px;
+    background-color: #F5B301;
+    cursor: pointer;
+} */
+
+/* .image {
+    max-width: 400px;
+    min-width: 200px;
+    min-height: 200px;
+    max-height: 400px;
+} */
+
+.home {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    /* background-color: orange; */
+    font-family: 'poppins';
+    letter-spacing: 0.1rem;
+    overflow-x: hidden;
+    position: absolute;
+}
+
+.nav {
+    width:18%;
+    height: 100%;
+    background-color: #242526;
+    position: fixed; 
+    overflow: hidden;
+}
+
+.heading {
+    height: 40%;
+    width: 100%;
+    /* background-color: #fff; */
+    display: flex;
+    justify-content: center;
+}
+
+.headingInner {
+    width: 80%;
+    height: 100%;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+.icon {
+    border-radius: 100%;
+}
+
+.extra {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.name {
+    text-transform: uppercase;
+}
+
+.files {
+    margin-top: -25px;
+    margin-bottom: 40px;
+}
+
+.upload {
+    color:#fff;
+    background: #F5B301;
+    cursor:pointer;
+    padding: 13px 50px;
+    border-radius: 100px;
+}
+
+.arranging {
+    height:49%;
+    width: 100%;
+    /* background-color: grey; */
+}
+
+.logout {
+    height:6%;
+    width: 100%;
+    /* background-color: green; */
+}
+
+.cards {
+    /* display: flex;
+    flex-wrap: wrap; */
+    margin-left: 18%;
+    position: relative;
+    width: 80%;
+    height: 100%;
+    /* background-color: violet; */
+}
+
+.yourImages {
+    padding-left: 20px;
+    color: #F5B301;
+}
+
+.images {
+    float:left;
+    margin: 0 0 0 0.2rem ;
+    /* border-radius: 10px; */
+}
+
+.imag {
+    width: 18.95rem;
+    height: 16rem;
+    border-radius: 5px;
+}
+
+.logout {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3A3B3B;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1440px) {
+    .imag {
+        width: 17.8rem;
+        height: 16rem;
+    }  
+}
+
+@media screen and (max-width: 1024px) {
+    .nav {
+        width: 25%;
+    }
+    .cards {
+        margin-left: 25%;
+    }
+    .imag {
+        width: 11.6rem;
+        height: 13rem;
+    }    
+} 
+
+@media screen and (max-width: 768px) {
+    .home {
+        display: flex;
+        flex-direction: row; 
+        width: 100%;
+        height: 100%;
+    }
+    .nav {
+        display: flex;
+        height: 13%;
+        width: 100%;
+        flex-direction: row;
+        z-index: 1;
+        align-items: center;
+    }
+    .heading {
+        width: 90%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+    }
+    .headingInner {
+        display:flex;
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+    }
+    .snaplogo {
+        display: flex;
+        width: 25%;
+        height: 100%;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items:start;
+        width: 80%;
+        height: 100%;
+    }
+    .name {
+        font-size: 25px;
+    }
+    .arranging {
+        width: 0%;
+        height: 0%;
+    }
+    .logout {
+        width: 15%;
+        height: 100%;
+    }
+    .cards {
+        margin-left: 0%;
+        margin-top: 13%;
+        width: 100%;
+        height: 90%;
+    }
+    .imag {
+        width: 11rem;
+        height: 10rem;
+    }   
+    .logout {
+        background-color: #242526;
+    }
+}
+
+@media screen and (max-width: 425px) and (min-width: 0px) {
+    .nav {
+        height: 10%;
+        position: absolute;
+    }
+    .headingInner {
+        flex-direction: row;
+    }
+    .files {
+        display: none;
+    }
+    .icon {
+        position: relative;
+        top: -10px;
+        left: 5px;
+    }
+    .name {
+        position: relative;
+        left: 30px;
+        font-size: 120%;
+    }
+    .upload {
+        position: relative;
+        padding: 2px 20px;
+        top: 15px;
+        left: -110%;
+    }
+    .cards {
+        margin-top: 16%;
+        margin-left: 0;
+        font-size: 13px;
+    }
+    .imag {
+        width: 8.5rem;
+        height: 8rem;
+    }
+}
