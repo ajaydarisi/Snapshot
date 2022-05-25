@@ -5,20 +5,33 @@ import { db, storage } from "./Firebase.js";
 import { doc, setDoc, collection, getDocs } from "firebase/firestore";
 // import { Routes, Route } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
-import Snaplogo from '../Images/SNAPLOGO.png'
+import Snaplogo from "../Images/SNAPLOGO.png";
+import { useAuth } from "./Firebase.js";
 import "./home.css";
 // import { saveAs } from 'file-saver';
 
 function Home() {
+  const currentUser = useAuth();
   const location = useLocation();
   let navigate = useNavigate();
   const auth = getAuth();
   var [data, setData] = useState([]);
+  var [files, setFiles] = useState(0);
+  var [name, setName] = useState("User");
+  const [progresspercent, setProgresspercent] = useState(0);
 
   const fun1 = async () => {
+    // console.log(location.state);
     var data1 = [];
+    location.state = { email: 'dgvsak25@gmail.com'}
     const querySnapshot = await getDocs(collection(db, location.state.email));
+    setFiles(Number(querySnapshot.docs.length) - 1);
+    // console.log(querySnapshot.docs.length);
     querySnapshot.forEach((doc) => {
+      if (doc.data().name) {
+        setName(doc.data().name);
+      }
+      // console.log(doc.data().name);
       data1.push(doc.data());
     });
     setData(data1);
@@ -30,18 +43,25 @@ function Home() {
   const handleSubmit = (e) => {
     // e.preventDefault();
     const file = e.target.files[0];
-    console.log(file);
+    var date =
+      file.lastModifiedDate.getDate() +
+      "-" +
+      file.lastModifiedDate.getMonth() +
+      "-" +
+      (Number(file.lastModifiedDate.getYear()) + 1900);
     if (!file) return;
-    console.log(location.state.email);
+    // console.log(location.state.email);
     const storageRef = ref(storage, `${location.state.email}/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        // const progress =
-        //   Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        // setProgresspercent(progress);
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgresspercent(progress);
+        // console.log(progress);
       },
       (error) => {
         alert(error);
@@ -51,24 +71,38 @@ function Home() {
           console.log(downloadURL);
           var imageurl = {
             imageURL: downloadURL,
+            filename: file.name,
+            date: date,
           };
           await setDoc(doc(db, location.state.email, file.name), imageurl);
         });
       }
     );
   };
-   const signout = () => {
-      signOut(auth).then(() => {
-          // Sign-out successful.
-          navigate("/");
-        }).catch((error) => {
-          // An error happened.
-        });
-  }
+  const signout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        navigate("/");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
 
   const expand = (e) => {
-      navigate("/expand",{state:{imageURL: e.target.src,email:location.state.email}});
-  }
+    // console.log(e.target);
+    navigate("/expand", {
+      state: {
+        imageURL: e.target.src,
+        email: location.state.email,
+        name: name,
+        files: files,
+        filename: e.target.alt,
+        date1: e.target.id,
+      },
+    });
+  };
 
   // const downloadImage = (e) => {
   //   console.log(e);
@@ -80,7 +114,7 @@ function Home() {
       <div className="nav">
         <div className="heading">
           <div className="headingInner">
-            <div className="snaplogo">
+            <div className="snaplogo1">
               <img
                 src={Snaplogo}
                 alt="Icon"
@@ -89,45 +123,57 @@ function Home() {
                 height="100"
               />
             </div>
-            <div className="text" >
-              <h1 className="name">Ajay Darisi</h1>
-              <p className="files"><span className="count">1234</span> files</p> 
+            <div className="text">
+              <h1 className="name">{name}</h1>
+              <p className="files">
+                <span className="count">{files}</span> files
+              </p>
             </div>
-            <div className="">
-            <label className="upload">
-              <input
-                className="upfile"
-                type="file"
-                accept="image/*"
-                placeholder="Upload"
-                onChange={(event) => {
-                  console.log(event);
-                  handleSubmit(event);
-                }}
-              />
-              UPLOAD
-           </label>
-           </div>
+            <div className="extra">
+              <label className="upload">
+                <input
+                  className="upfile"
+                  type="file"
+                  accept="image/*"
+                  placeholder="Upload"
+                  onChange={(event) => {
+                    // console.log(event);
+                    handleSubmit(event);
+                  }}
+                />
+                <span className="uptext">UPLOAD</span>
+                <span className="uplogo">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M384 352v64c0 17.67-14.33 32-32 32H96c-17.67 0-32-14.33-32-32v-64c0-17.67-14.33-32-32-32s-32 14.33-32 32v64c0 53.02 42.98 96 96 96h256c53.02 0 96-42.98 96-96v-64c0-17.67-14.33-32-32-32S384 334.3 384 352zM201.4 9.375l-128 128c-12.51 12.51-12.49 32.76 0 45.25c12.5 12.5 32.75 12.5 45.25 0L192 109.3V320c0 17.69 14.31 32 32 32s32-14.31 32-32V109.3l73.38 73.38c12.5 12.5 32.75 12.5 45.25 0s12.5-32.75 0-45.25l-128-128C234.1-3.125 213.9-3.125 201.4 9.375z"/></svg>
+                </span>
+              </label>
+            </div>
+            <div className="Progress">{progresspercent}% <span className="uploaded">Uploaded</span></div>
           </div>
         </div>
-        <div className="arranging">
-          
-        </div>
+        <div className="arranging"></div>
         <div className="logout" onClick={signout}>
-            Logout 
+          <span className="logouttext">Logout</span>
         </div>
       </div>
-      <div className="cards">
+      <div className="rightdiv">
         <h1 className="yourImages">Your Images</h1>
-        {data.map((l) => ( l.imageURL? (
-          <div key={l.imageURL} className="images" onClick={expand}>
-            <img
-              src={l.imageURL}
-              alt="Not found"
-              className="imag"
-            />
-          </div>):( <p></p>)
-        ))}
+        <div className="cards">
+          {data.map((l) =>
+            l.imageURL ? (
+              <div key={l.imageURL} className="images">
+                <img
+                  src={l.imageURL}
+                  alt={l.filename}
+                  id={l.date}
+                  className="imag"
+                  onClick={expand}
+                />
+              </div>
+            ) : (
+              <p></p>
+            )
+          )}
+        </div>
       </div>
     </div>
   );
@@ -135,7 +181,7 @@ function Home() {
 
 export default Home;
 
-// {/* 
+// {/*
 // //       {data.map((l) => (
 // //         <div key={l.imageURL} className="images">
 // //           <img
