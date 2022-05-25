@@ -114,9 +114,9 @@ function Signup() {
               <span className="login">Register</span>
             </button>
             <p>
-              Existing User?
+              Existing User? &nbsp;
               <Link to="/">
-                <span className="register"> Login</span>
+                <span className="register">Login</span>
               </Link>
             </p>
           </div>

@@ -14,10 +14,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        {currentUser && 
-        <Route path="/home" element={<Home />} /> }
-        { currentUser &&
-        <Route path="/expand" element={<Expand />} /> }
+        {currentUser && <Route path="/home" element={<Home />} />}
+        {currentUser && <Route path="/expand" element={<Expand />} />}
         <Route path="*" element={<NoPath />} />
       </Routes>
     </div>

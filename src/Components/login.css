@@ -44,6 +44,8 @@
   width: 70%;
   height: 100%;
   flex-direction: column;
+  justify-content: center;
+
   color: #fff;
   /* background-color: brown;  */
 }
@@ -140,7 +142,7 @@
 .register {
   color: #F5B301;
   font-size: larger;
-  text-decoration: none;
+  text-decoration: inherit;
 }
 
 @media screen and (max-width:1440px){

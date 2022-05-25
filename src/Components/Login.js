@@ -22,7 +22,7 @@ function Login() {
         console.log("Success", user);
         setEmail("");
         setPassword("");
-        navigate("/home", { state: { email: email} });
+        navigate("/home", { state: { email: email } });
         // ...
       })
       .catch((error) => {
@@ -104,9 +104,9 @@ function Login() {
               <span className="login">Login</span>
             </button>
             <p>
-              New User?
+              New User? &nbsp;
               <Link to="/signup">
-                <span className="register"> Register</span>
+                <span className="register">Register</span>
               </Link>
             </p>
           </div>

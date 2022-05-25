@@ -2,22 +2,6 @@
     display: none;
 }
 
-/* .upload {
-    border: 1px solid #F5B301;
-    margin-top:20px;
-    padding: 20px 30px;
-    border-radius: 20px;
-    background-color: #F5B301;
-    cursor: pointer;
-} */
-
-/* .image {
-    max-width: 400px;
-    min-width: 200px;
-    min-height: 200px;
-    max-height: 400px;
-} */
-
 .home {
     display: flex;
     height: 100%;
@@ -46,7 +30,7 @@
 }
 
 .headingInner {
-    width: 80%;
+    width: 80%; 
     height: 100%;
     /* background-color: brown; */
     display: flex;
@@ -234,6 +218,7 @@
         display: flex;
         width: 25%;
         height: 100%;
+        align-items: center;
     }
     .text {
         display: flex;
@@ -282,6 +267,9 @@
     }
     .headingInner {
         flex-direction: row;
+    }
+    .snaplogo {
+        align-items: center;
     }
     .files {
         display: none;

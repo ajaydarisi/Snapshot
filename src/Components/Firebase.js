@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 // import firebase from 'firebase';
 
@@ -27,14 +27,14 @@ const db = getFirestore(app);
 const auth = getAuth();
 
 export function useAuth() {
-  const [ currentUser, setCurrentUser ] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    const unsub = onAuthStateChanged(auth, (user) => setCurrentUser(user));
     return unsub;
-  },[])
+  }, []);
 
   return currentUser;
 }
 
-export { db, storage};
+export { db, storage };
