@@ -5,6 +5,8 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { getAuth, signOut } from "firebase/auth";
 import { db, storage } from "./Firebase.js";
 import { doc, setDoc} from "firebase/firestore";
+import download from '../Images/download.png'
+import saveAs from 'file-saver';
 import './expand.css';
 
 
@@ -49,6 +51,9 @@ function Expand() {
       }).catch((error) => {
         // An error happened.
       });
+}
+const save = () => {
+    saveAs(location.state.imageURL,'download');
 }
   const goBack = () => {
     navigate("/home",{ state: {email:location.state.email}});
@@ -96,11 +101,21 @@ function Expand() {
         </div>
       </div>
       <div className="cards">
-            <div className="date">
-
+            <div className="details">
+                <div className="detailsInner">
+                  <div className="datediv">
+                    <span className="date">2022-03-04</span>
+                  </div>
+                  <div className="filenamediv">
+                    <span className="filename">Photo</span>
+                  </div>
+                </div>
+                <div className="download">
+                  <img src={download} alt="Download" width="50" height="50" onClick={save} />
+                </div>
             </div>
             <div className="bigimage">
-                <img className="Img" src={location.state.imageURL} alt="Not found" onClick={goBack}/>
+              <img className="Img" src={location.state.imageURL} alt="Not found" onClick={goBack} />
             </div>
       </div>
     </div>
