@@ -14,21 +14,17 @@ function Login() {
 
   const Submit = () => {
     signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(() => {
         // Signed in
-        // const user = userCredential.user;
-        // console.log("Success", user);
         setEmail("");
         setPassword("");
-        setMessage("Logging in")
-        //Want to remove email from sending
-        navigate("/home", { state: { email: email } });
+        setMessage("Logging in");
+        navigate("/home");
       })
       .catch((error) => {
         // Error Handling
         const errorCode = error.code;
-        setMessage(errorCode.split('/')[1])
-        // console.log(err);
+        setMessage(errorCode.split("/")[1]);
       });
   };
 

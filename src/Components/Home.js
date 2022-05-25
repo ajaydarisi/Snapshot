@@ -18,22 +18,18 @@ function Home() {
   const [progresspercent, setProgresspercent] = useState(0);
 
   const fun1 = async () => {
-    // console.log("Started");
     var data1 = [];
     const querySnapshot = await getDocs(collection(db, currentUser.email));
-    // console.log(currentUser.email);
-    //For finding Length
-    // console.log(querySnapshot.docs.length);
     setFiles(Number(querySnapshot.docs.length) - 1);
     querySnapshot.forEach((doc) => {
       if (doc.data().name) {
         setName(doc.data().name);
       }
       data1.push(doc.data());
-    }); 
+    });
     setData(data1);
-    // console.log(currentUser.email); 
   };
+
   useEffect(() => {
     fun1();
   });
@@ -48,7 +44,6 @@ function Home() {
       "-" +
       (Number(file.lastModifiedDate.getYear()) + 1900);
     if (!file) return;
-    // console.log(location.state.email);
     const storageRef = ref(storage, `${currentUser.email}/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
@@ -59,7 +54,6 @@ function Home() {
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
         setProgresspercent(progress);
-        // console.log(progress);
       },
       (error) => {
         alert(error);
@@ -85,11 +79,11 @@ function Home() {
       })
       .catch((error) => {
         // An error happened.
+        console.log(error);
       });
   };
 
   const expand = (e) => {
-    // console.log(e.target);
     navigate("/expand", {
       state: {
         imageURL: e.target.src,
@@ -101,11 +95,6 @@ function Home() {
       },
     });
   };
-
-  // const downloadImage = (e) => {
-  //   console.log(e);
-  //   saveAs('asdfg', e)
-  // }
 
   return (
     <div className="home">
@@ -135,7 +124,6 @@ function Home() {
                   accept="image/*"
                   placeholder="Upload"
                   onChange={(event) => {
-                    // console.log(event);
                     handleSubmit(event);
                   }}
                 />
@@ -158,7 +146,7 @@ function Home() {
         </div>
       </div>
       <div className="rightdiv">
-        <h1 className="yourImages">{(files)? 'Your Images': 'No Images'}</h1>
+        <h1 className="yourImages">{files ? "Your Images" : "No Images"}</h1>
         <div className="cards">
           {data.map((l) =>
             l.imageURL ? (
@@ -172,7 +160,7 @@ function Home() {
                 />
               </div>
             ) : (
-              <p></p>
+              <></>
             )
           )}
         </div>
