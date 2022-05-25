@@ -1,45 +1,45 @@
 import React, { useState, useEffect } from "react";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
-import { getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import { db, storage } from "./Firebase.js";
+import { getAuth, signOut } from "firebase/auth";
 import { doc, setDoc, collection, getDocs } from "firebase/firestore";
-// import { Routes, Route } from "react-router-dom";
-import { useLocation, useNavigate } from "react-router-dom";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import Snaplogo from "../Images/SNAPLOGO.png";
 import "./home.css";
-// import { saveAs } from 'file-saver';
+import { useAuth } from "./Firebase.js";
 
 function Home() {
-  const location = useLocation();
-  let navigate = useNavigate();
   const auth = getAuth();
+  const currentUser = useAuth();
+  let navigate = useNavigate();
   var [data, setData] = useState([]);
   var [files, setFiles] = useState(0);
   var [name, setName] = useState("User");
   const [progresspercent, setProgresspercent] = useState(0);
 
   const fun1 = async () => {
-    // console.log(location.state);
+    // console.log("Started");
     var data1 = [];
-    location.state = { email: "dgvsak25@gmail.com" };
-    const querySnapshot = await getDocs(collection(db, location.state.email));
-    setFiles(Number(querySnapshot.docs.length) - 1);
+    const querySnapshot = await getDocs(collection(db, currentUser.email));
+    // console.log(currentUser.email);
+    //For finding Length
     // console.log(querySnapshot.docs.length);
+    setFiles(Number(querySnapshot.docs.length) - 1);
     querySnapshot.forEach((doc) => {
       if (doc.data().name) {
         setName(doc.data().name);
       }
-      // console.log(doc.data().name);
       data1.push(doc.data());
-    });
+    }); 
     setData(data1);
+    // console.log(currentUser.email); 
   };
   useEffect(() => {
     fun1();
-  }, []);
+  });
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     const file = e.target.files[0];
     var date =
       file.lastModifiedDate.getDate() +
@@ -49,7 +49,7 @@ function Home() {
       (Number(file.lastModifiedDate.getYear()) + 1900);
     if (!file) return;
     // console.log(location.state.email);
-    const storageRef = ref(storage, `${location.state.email}/${file.name}`);
+    const storageRef = ref(storage, `${currentUser.email}/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
     uploadTask.on(
@@ -72,7 +72,7 @@ function Home() {
             filename: file.name,
             date: date,
           };
-          await setDoc(doc(db, location.state.email, file.name), imageurl);
+          await setDoc(doc(db, currentUser.email, file.name), imageurl);
         });
       }
     );
@@ -93,7 +93,7 @@ function Home() {
     navigate("/expand", {
       state: {
         imageURL: e.target.src,
-        email: location.state.email,
+        email: currentUser.email,
         name: name,
         files: files,
         filename: e.target.alt,
@@ -148,7 +148,7 @@ function Home() {
               </label>
             </div>
             <div className="Progress">
-              {progresspercent}% <span className="uploaded">Uploaded</span>
+              {progresspercent}%&nbsp;<span className="uploaded">Uploaded</span>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ function Home() {
         </div>
       </div>
       <div className="rightdiv">
-        <h1 className="yourImages">Your Images</h1>
+        <h1 className="yourImages">{(files)? 'Your Images': 'No Images'}</h1>
         <div className="cards">
           {data.map((l) =>
             l.imageURL ? (
@@ -182,16 +182,3 @@ function Home() {
 }
 
 export default Home;
-
-// {/*
-// //       {data.map((l) => (
-// //         <div key={l.imageURL} className="images">
-// //           <img
-// //             src={l.imageURL}
-// //             alt="Not found"
-// //             width="300"
-// //             height="300"
-// //             className="imag"
-// //           />
-// //         </div>
-// //       ))} */}

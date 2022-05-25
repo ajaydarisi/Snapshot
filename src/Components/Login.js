@@ -1,16 +1,14 @@
 import { React, useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-// import login from '../Images/login.png';
-import { Link } from "react-router-dom";
-import "./login.css";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Images/SNAPLOGO.png";
 import Icon from "../Images/Icon.png";
+import "./login.css";
 
 function Login() {
-  let navigate = useNavigate();
-  const [err, seterr] = useState("");
   const auth = getAuth();
+  let navigate = useNavigate();
+  const [message, setMessage] = useState("Enter Credentials");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,23 +16,24 @@ function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        console.log("Success", user);
+        // const user = userCredential.user;
+        // console.log("Success", user);
         setEmail("");
         setPassword("");
+        setMessage("Logging in")
+        //Want to remove email from sending
         navigate("/home", { state: { email: email } });
-        // ...
       })
       .catch((error) => {
-        // const errorCode = error.code;
-        // const errorMessage = error.message;
-        seterr({ err: error.code });
-        console.log(err);
+        // Error Handling
+        const errorCode = error.code;
+        setMessage(errorCode.split('/')[1])
+        // console.log(err);
       });
   };
 
   const handleKeypress = (e) => {
-    //it triggers by pressing the enter key
+    //It triggers by pressing the enter key
     if (e.keyCode === 13) {
       Submit();
     }
@@ -81,6 +80,7 @@ function Login() {
             <p>Login to Upload</p>
           </div>
           <div className="credentials">
+            <p>{message}</p>
             <input
               type="text"
               name="name"

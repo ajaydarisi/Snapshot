@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from "./Firebase.js";
 import { doc, setDoc } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Logo from "../Images/SNAPLOGO.png";
@@ -9,12 +9,14 @@ import Icon from "../Images/Icon.png";
 import "./login.css";
 
 function Signup() {
+  const auth = getAuth();
   let navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const auth = getAuth();
+  const [message, setMessage] = useState("Enter Credentials");
   const Submit = () => {
+    setMessage("Registering you...")
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Signed in
@@ -26,19 +28,19 @@ function Signup() {
         });
         console.log(user);
         navigate("/");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setMessage(errorCode.split('/')[1])
         console.log(errorCode);
         console.log(errorMessage);
-        // ..
       });
   };
 
   const handleKeypress = (e) => {
-    //it triggers by pressing the enter key
+    //Direct Submitting by pressing Enter key
+    //It triggers by pressing the Enter key
     if (e.keyCode === 13) {
       Submit();
     }
@@ -85,6 +87,7 @@ function Signup() {
             <p>Register to Upload</p>
           </div>
           <div className="credentials">
+          <p>{message}</p>
             <input
               type="text"
               name="name"

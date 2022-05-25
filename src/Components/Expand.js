@@ -5,7 +5,6 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { getAuth, signOut } from "firebase/auth";
 import { db, storage } from "./Firebase.js";
 import { doc, setDoc } from "firebase/firestore";
-import download from "../Images/download.png";
 import saveAs from "file-saver";
 import "./expand.css";
 import "./home.css";
@@ -14,8 +13,6 @@ function Expand() {
   const location = useLocation();
   let navigate = useNavigate();
   const auth = getAuth();
-  var [files, setFiles] = useState(0);
-  var [name, setName] = useState("User");
   const [progresspercent, setProgresspercent] = useState(0);
   const handleSubmit = (e) => {
     // e.preventDefault();

@@ -8,12 +8,14 @@ import NoPath from "./Components/NoPath.js";
 import { useAuth } from "./Components/Firebase.js";
 
 function App() {
+  //For checking Current User
   const currentUser = useAuth();
   return (
     <div className="App">
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        {/* Works only when user is logged in */}
         {currentUser && <Route path="/home" element={<Home />} />}
         {currentUser && <Route path="/expand" element={<Expand />} />}
         <Route path="*" element={<NoPath />} />
