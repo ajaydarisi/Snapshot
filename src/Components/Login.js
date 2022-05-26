@@ -101,7 +101,7 @@ function Login() {
             </button>
             <p>
               New User? &nbsp;
-              <Link to="/">
+              <Link to="/register">
                 <span className="register">Register</span>
               </Link>
             </p>
