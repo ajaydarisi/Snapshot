@@ -34,12 +34,12 @@ function Register() {
         </div>
       </div>
       <div className="rightDiv">
-          <div className="rightInner1">
-          <h1 className="LoginToView" >Registrations are only for VIP'S</h1>
+        <div className="rightInner1">
+          <h1 className="LoginToView">Registrations are only for VIP'S</h1>
           <Link to="/">
             <p className="loginbutton">Login</p>
           </Link>
-          </div>
+        </div>
       </div>
     </div>
   );
