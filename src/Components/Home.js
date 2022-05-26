@@ -76,6 +76,7 @@ function Home() {
       .then(() => {
         // Sign-out successful.
         navigate("/");
+        console.log(currentUser);
       })
       .catch((error) => {
         // An error happened.

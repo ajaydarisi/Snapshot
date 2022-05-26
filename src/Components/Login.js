@@ -19,7 +19,7 @@ function Login() {
         setEmail("");
         setPassword("");
         setMessage("Logging in");
-        navigate("/home");
+        navigate("/");
       })
       .catch((error) => {
         // Error Handling
@@ -101,7 +101,7 @@ function Login() {
             </button>
             <p>
               New User? &nbsp;
-              <Link to="/signup">
+              <Link to="/">
                 <span className="register">Register</span>
               </Link>
             </p>

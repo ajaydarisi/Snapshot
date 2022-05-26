@@ -69,7 +69,7 @@ function Expand() {
   };
 
   const goBack = () => {
-    navigate("/home", { state: { email: location.state.email } });
+    navigate("/", { state: { email: location.state.email } });
   };
   try {
     return (
