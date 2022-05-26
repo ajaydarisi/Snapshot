@@ -127,7 +127,7 @@
 
 .images {
     float:left;
-    margin: 1rem 0 0 1rem ;
+    margin: 1rem 0 0 1rem;
     cursor: pointer;
     border-radius: 10px;
     box-shadow: 0 0 3px #3A3B3B;
@@ -150,9 +150,12 @@
 }
 
 @media screen and (max-width: 1440px) {
+    .images {
+        margin: 0 0 0 0.3rem;
+    }   
     .imag {
-        width: 17.8rem;
-        height: 16rem;
+        width: 15rem;
+        height: 14rem;
     }  
 }
 
@@ -162,6 +165,9 @@
     }
     .rightdiv {
         margin-left: 25%;
+    }
+    .images {
+        margin: 0.3rem 0 0 0.3rem;
     }
     .imag {
         width: 11.6rem;
@@ -202,10 +208,20 @@
         height: 100%;
         align-items: center;
     }
+    .headingInner {
+        flex-direction: row;
+    }
+    .snaplogo {
+        align-items: center;
+    }
+    .icon {
+        width:80%;
+        height:70%;
+    }
     .text {
         display: flex;
-        flex-direction: column;
-        align-items:start;
+        flex-direction: row;
+        align-items:center;
         justify-content: space-around;
         padding-left: 2%;
         width: 80%;
@@ -254,6 +270,10 @@
     .headingInner {
         flex-direction: row;
     }
+    .icon {
+        width:90%;
+        height:70%;
+    }
     .snaplogo {
         align-items: center;
     }
@@ -281,5 +301,16 @@
     .imag {
         width: 8.5rem;
         height: 8rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .icon {
+        width:80%;
+        height:50%;
+    }
+    .imag {
+        width: 6rem;
+        height: 6rem;
     }
 }
