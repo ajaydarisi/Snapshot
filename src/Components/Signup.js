@@ -16,7 +16,7 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("Enter Credentials");
   const Submit = () => {
-    setMessage("Registering you...")
+    setMessage("Registering you...");
     createUserWithEmailAndPassword(auth, email, password)
       .then(async (userCredential) => {
         // Signed in
@@ -24,7 +24,6 @@ function Signup() {
         await setDoc(doc(db, email, "credentials"), {
           name: name,
           email: email,
-          password: password,
         });
         console.log(user);
         navigate("/");
@@ -32,16 +31,14 @@ function Signup() {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        setMessage(errorCode.split('/')[1])
+        setMessage(errorCode.split("/")[1]);
         console.log(errorCode);
         console.log(errorMessage);
       });
   };
 
   const handleKeypress = (e) => {
-    //Direct Submitting by pressing Enter key
-    //It triggers by pressing the Enter key
-    if (e.keyCode === 13) {
+    if (e.code === "Enter") {
       Submit();
     }
   };
@@ -84,10 +81,10 @@ function Signup() {
               height="90"
               className="snaplogo"
             />
-            <p>Register to Upload</p>
+            <p className="lou">Register to Upload</p>
           </div>
           <div className="credentials">
-          <p>{message}</p>
+            <p>{message}</p>
             <input
               type="text"
               name="name"

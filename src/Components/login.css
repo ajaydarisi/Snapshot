@@ -3,7 +3,6 @@
   width: 100vw;
   height: 100vh;
   background-color: #242526;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 3;
 }
 
@@ -48,7 +47,7 @@
 .snapshots {
   margin-top: -15px;
   font-size: 450%;
-  color: #F5B301;
+  color: #f5b301;
 }
 
 .caption {
@@ -69,9 +68,9 @@
 .rightInner {
   display: flex;
   width: 55%;
-  height: 60%;
+  height: 65%;
   border-radius: 20px;
-  background-color: #fff; 
+  background-color: #fff;
   flex-direction: column;
 }
 
@@ -79,7 +78,7 @@
   display: flex;
   width: 100%;
   height: 25%;
-  border-radius:20px 20px 0 0 ;
+  border-radius: 20px 20px 0 0;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -91,6 +90,10 @@
   border-radius: 100%;
 }
 
+.lou {
+  margin-top: 15px;
+}
+
 .credentials {
   display: flex;
   width: 100%;
@@ -98,14 +101,14 @@
   align-items: center;
   justify-content: start;
   flex-direction: column;
-  border-radius:0 0 20px 20px;
+  border-radius: 0 0 20px 20px;
 }
 
 .in1 {
   all: unset;
   letter-spacing: 3;
   border-radius: 20px;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   color: #929292;
   font-size: 18px;
   letter-spacing: 0.5px;
@@ -115,11 +118,11 @@
   padding: 15px;
 }
 
-.submit { 
+.submit {
   all: unset;
   padding: 13px 50px;
   border-radius: 100px;
-  background-color: #F5B301;
+  background-color: #f5b301;
   cursor: pointer;
 }
 
@@ -131,24 +134,24 @@
 }
 
 .register {
-  color: #F5B301;
+  color: #f5b301;
   font-size: larger;
   text-decoration: inherit;
 }
 
-@media screen and (max-width:1440px){
+@media screen and (max-width: 1440px) {
   .image {
     width: 25%;
   }
   .icon {
     width: 100px;
     height: 100px;
-  } 
+  }
   .snapshots {
     font-size: 300%;
   }
   .caption {
-    font-size:13px;
+    font-size: 13px;
   }
   .welcome {
     font-size: 15px;
@@ -159,7 +162,7 @@
   }
 }
 
-@media screen and (max-width:1024px)  {
+@media screen and (max-width: 1124px) {
   .title {
     height: 60%;
   }
@@ -170,62 +173,62 @@
   .titleInner {
     padding-left: 20px;
     padding-top: 0px;
-  } 
+  }
   .snapshots {
     font-size: 250%;
   }
   .caption {
-    font-size:10px;
+    font-size: 10px;
   }
   .welcome {
-    padding-top:19px;
+    padding-top: 19px;
     font-size: 13px;
   }
   .rightInner {
-    width:80%;
-    height:70%
+    width: 80%;
+    height: 70%;
   }
 }
 
-@media screen and (max-width:768px)  {
+@media screen and (max-width: 768px) {
   .main {
     flex-direction: column;
   }
   .leftDiv {
-    width:100%;
-    height:20%;
+    width: 100%;
+    height: 20%;
     align-items: end;
   }
   .leftInner {
-    width:40%;
-    height:60%;
+    width: 40%;
+    height: 60%;
   }
   .title {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
   }
-  .image {
-    width:30%;
-    height:100%;
+  .icon {
+    margin-left: -10px;
+    width: 70px;
+    height: 70px;
   }
   .caption {
-    width:95%;
-    height:0%;
-    visibility:hidden;
+    width: 95%;
+    height: 0%;
+    visibility: hidden;
   }
   .welcome {
-    margin-top: -15px;
-    padding:0px; 
+    padding: 0px;
   }
   .rightDiv {
-    width:100%;
-    height:80%;
+    width: 100%;
+    height: 80%;
     justify-content: center;
     align-items: center;
   }
   .rightInner {
-    width:55%;
-    height:75%;
+    width: 55%;
+    height: 75%;
   }
   .logo {
     height: 25%;
@@ -237,44 +240,44 @@
     height: 75%;
   }
   .in1 {
-    width:70%;
+    width: 70%;
     padding: 10px;
   }
 }
 
-@media screen and (max-width:425px) {
+@media screen and (max-width: 525px) {
   .leftDiv {
-    height:30%;
+    height: 30%;
     align-items: center;
   }
   .leftInner {
     width: 70%;
   }
   .welcome {
-    padding-top:28px;
     font-size: 12px;
   }
   .snapshots {
-    font-size: 230%
+    font-size: 230%;
   }
   .icon {
-    width: 70px;
-    height: 70px;
+    margin-left: 0;
+    width: 65px;
+    height: 65px;
   }
   .rightDiv {
-    height:70%;
+    height: 70%;
     align-items: start;
   }
   .rightInner {
-    width:80%;
+    width: 80%;
     height: 90%;
   }
   .logo {
-    height:30%;
+    height: 30%;
   }
   .snaplogo {
-    width:70px;
-    height:70px;
+    width: 70px;
+    height: 70px;
   }
   .in1 {
     padding: 10px;
@@ -282,7 +285,7 @@
   }
 }
 
-@media screen and (max-width:320px) and (min-width:0px) {
+@media screen and (max-width: 320px) and (min-width: 0px) {
   .leftInner {
     width: 87%;
   }

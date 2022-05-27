@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NoPath.css";
+import "./Redirect.css";
 import Icon from "../Images/Icon.png";
 import "./login.css";
 

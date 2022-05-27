@@ -30,7 +30,7 @@ function Login() {
 
   const handleKeypress = (e) => {
     //It triggers by pressing the enter key
-    if (e.keyCode === 13) {
+    if (e.code === "Enter") {
       Submit();
     }
   };
@@ -73,7 +73,7 @@ function Login() {
               height="90"
               className="snaplogo"
             />
-            <p>Login to Upload</p>
+            <p className="lou">Login to Upload</p>
           </div>
           <div className="credentials">
             <p>{message}</p>

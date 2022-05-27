@@ -1,316 +1,332 @@
 .upfile {
-    display: none;
+  display: none;
 }
 
 .home {
-    display: flex;
-    height: 100%;
-    width: 100%;
-    font-family: 'poppins';
-    letter-spacing: 0.1rem;
-    overflow-x: hidden;
-    position: absolute;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  overflow-x: hidden;
 }
 
 .nav {
-    width:18%;
-    height: 100%;
-    background-color: #242526;
-    position: fixed; 
-    overflow: hidden;
+  width: 20%;
+  height: 100%;
+  background-color: #242526;
+  overflow: hidden;
 }
 
 .heading {
-    height: 40%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .headingInner {
-    width: 80%; 
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
 }
 
 .snaplogo1 {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  width: 100%;
+  height: 100%;
 }
 
-.icon {
+/* .icon {
     border-radius: 100%;
-}
+} */
 
 .text {
-    display: flex;
-    width: 100%;
-    height: 40%;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  /* width: 100%; */
+  /* height: 100%; */
+  flex-direction: column;
+  /* background-color: blue; */
+}
+
+.files {
+  margin-top: -10px;
+  text-align: center;
 }
 
 .extra {
-    display: flex;
-    width: 100%;
-    height: 20%;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  width: 100%;
+  height: 30%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .upload {
-    color:#fff;
-    width: 30%;
-    background: #F5B301;
-    cursor:pointer;
-    padding: 13px 50px;
-    border-radius: 100px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 40px;
+  background: #f5b301;
+  cursor: pointer;
+  /* padding: 13px 50px; */
+  border-radius: 100px;
+}
+
+.uptext {
+  cursor: pointer;
 }
 
 .uplogo {
-    display: none;
-    height:90%;
+  display: none;
+  height: 90%;
 }
 
 .Progress {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 .text {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .name {
-    text-align: center; 
-    text-transform: uppercase;
-    font-size: 150%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
 }
 
 .arranging {
-    height:49%;
-    width: 100%;
+  height: 49%;
+  width: 100%;
 }
 
 .logout {
-    height:6%;
-    width: 100%;
+  height: 6%;
+  width: 100%;
 }
 
 .rightdiv {
-    margin-left: 18%;
-    position: relative;
-    width: 80%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .yourImages {
-    padding-left: 20px;
-    color: #F5B301;
+  padding-left: 20px;
+  color: #f5b301;
 }
 
 .cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 5vh;
-    flex-wrap:wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  /* height: 5vh; */
+  flex-wrap: wrap;
 }
 
 .images {
-    float:left;
-    margin: 1rem 0 0 1rem;
-    cursor: pointer;
-    border-radius: 10px;
-    box-shadow: 0 0 3px #3A3B3B;
+  /* float:left; */
+  margin: 1rem 0 0 1rem;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #3a3b3b;
+  /* background-color: #F5B301; */
+  /* background-color: red; */
 }
 
 .imag {
-    width: 18.95rem;
-    height: 16rem;
-    border-radius: 10px;
-    object-fit: cover;
+  margin: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .logout {
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #3A3B3B;
-    cursor: pointer;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3a3b3b;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1440px) {
-    .images {
-        margin: 0 0 0 0.3rem;
-    }   
-    .imag {
-        width: 15rem;
-        height: 14rem;
-    }  
+  .images {
+    margin: 0 0 0 0.3rem;
+  }
+  .imag {
+    width: 15rem;
+    height: 14rem;
+  }
 }
 
-@media screen and (max-width: 1024px) {
-    .nav {
-        width: 25%;
-    }
-    .rightdiv {
-        margin-left: 25%;
-    }
-    .images {
-        margin: 0.3rem 0 0 0.3rem;
-    }
-    .imag {
-        width: 11.6rem;
-        height: 13rem;
-    }    
-} 
+@media screen and (max-width: 1300px) {
+  .nav {
+    width: 25%;
+  }
+  .upload {
+    width: 90%;
+  }
+  .images {
+    margin: 0.3rem 0 0 0.3rem;
+  }
+  .imag {
+    width: 11.6rem;
+    height: 13rem;
+  }
+}
 
 @media screen and (max-width: 850px) {
-    .home {
-        display: flex;
-        flex-direction: row; 
-        width: 100%;
-        height: 100%;
-    }
-    .nav {
-        display: flex;
-        height: 13%;
-        width: 100%;
-        flex-direction: row;
-        z-index: 1;
-        align-items: center;
-    }
-    .heading {
-        width: 90%;
-        height: 100%;
-        display:flex;
-        flex-direction: column;
-    }
-    .headingInner {
-        display:flex;
-        width: 100%;
-        height: 100%;
-        flex-direction: row;
-    }
-    .snaplogo1 {
-        display: flex;
-        width: 25%;
-        height: 100%;
-        align-items: center;
-    }
-    .headingInner {
-        flex-direction: row;
-    }
-    .snaplogo {
-        align-items: center;
-    }
-    .icon {
-        width:80%;
-        height:70%;
-    }
-    .text {
-        display: flex;
-        flex-direction: row;
-        align-items:center;
-        justify-content: space-around;
-        padding-left: 2%;
-        width: 80%;
-        height: 100%;
-    }
-    .name {
-        font-size: 25px;
-    }
-    .uploaded {
-        display: none;
-    }
-    .arranging {
-        width: 0%;
-        height: 0%;
-    }
-    .extra {
-        width: 25%;
-        flex-direction: row;
-    }
-    .Progress {
-        padding-top: 0px;;
-    }
-    .logout {
-        width: 15%;
-        height: 100%;
-    }
-    .rightdiv {
-        margin-left: 0%;
-        margin-top: 15%;
-        width: 100%;
-        height: 90%;
-    }
-    .imag {
-        width: 11rem;
-        height: 10rem;
-    }   
-    .logout {
-        background-color: #242526;
-    }
+  .home {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  .nav {
+    display: flex;
+    height: 13%;
+    width: 100%;
+    flex-direction: row;
+    z-index: 1;
+  }
+  .heading {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .headingInner {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+  }
+  .snaplogo1 {
+    display: flex;
+    width: 25%;
+    height: 100%;
+    align-items: center;
+  }
+  .headingInner {
+    flex-direction: row;
+  }
+  .snaplogo {
+    align-items: center;
+  }
+  /* .icon {
+        width:70px;
+        height:70px;
+    } */
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-left: 2%;
+    width: 80%;
+    height: 100%;
+  }
+  .name {
+    font-size: 25px;
+  }
+  .upload {
+    height: 150%;
+  }
+  .uploaded {
+    display: none;
+  }
+  .arranging {
+    width: 0%;
+    height: 0%;
+  }
+  .extra {
+    width: 25%;
+    flex-direction: row;
+  }
+  .Progress {
+    padding-top: 0px;
+  }
+  .logout {
+    width: 15%;
+    height: 100%;
+  }
+  .rightdiv {
+    width: 100%;
+    height: 90%;
+  }
+  .imag {
+    width: 11rem;
+    height: 10rem;
+  }
+  .logout {
+    background-color: #242526;
+  }
 }
 
 @media screen and (max-width: 600px) and (min-width: 0px) {
-    .nav {
-        height: 10%;
-    }
-    .headingInner {
-        flex-direction: row;
-    }
-    .icon {
-        width:90%;
-        height:70%;
-    }
-    .snaplogo {
-        align-items: center;
-    }
-    .files {
-        display: none;
-    }
-    .upload {
-        padding: 10px 13px;
-    }
-    .uptext {
-        display:none;
-    }
-    .uplogo {
-        display: block;
-        fill:#fff;
-    }
-    .Progress {
-        display: none;
-    }
-    .rightdiv {
-        margin-top: 19%;
-        margin-left: 0;
-        font-size: 13px;
-    }
-    .imag {
-        width: 8.5rem;
-        height: 8rem;
-    }
+  .nav {
+    height: 10%;
+  }
+  .headingInner {
+    flex-direction: row;
+  }
+  .upload {
+    width: 70%;
+    height: 160%;
+  }
+  .uptext {
+    display: none;
+  }
+  .uplogo {
+    width: 25px;
+    height: 25px;
+    display: block;
+    fill: #fff;
+  }
+  .Progress {
+    display: none;
+  }
+  .rightdiv {
+    margin-left: 0;
+    font-size: 13px;
+  }
+  .imag {
+    width: 8.5rem;
+    height: 8rem;
+  }
 }
 
-@media screen and (max-width: 420px) {
-    .icon {
-        width:80%;
-        height:50%;
-    }
-    .imag {
-        width: 6rem;
-        height: 6rem;
-    }
+@media screen and (max-width: 425px) {
+  .name {
+    font-size: 20px;
+  }
+  .imag {
+    width: 6rem;
+    height: 6rem;
+  }
+  .logout {
+    font-size: 13px;
+  }
+  .uplogo {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .files {
+    display: none;
+  }
 }
