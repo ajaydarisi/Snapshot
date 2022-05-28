@@ -274,7 +274,7 @@
 
 @media screen and (max-width: 525px) {
   .leftDiv {
-    height: 30%;
+    height: 20%;
     align-items: center;
   }
 
@@ -297,7 +297,7 @@
   }
 
   .rightDiv {
-    height: 70%;
+    height: 80%;
     align-items: start;
   }
 

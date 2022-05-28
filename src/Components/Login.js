@@ -17,6 +17,7 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const Submit = () => {
+    setMessage("Loading...")
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         // Signed in
