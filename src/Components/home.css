@@ -103,6 +103,7 @@
   text-align: center;
   text-transform: uppercase;
   font-size: 22px;
+  cursor: pointer;
 }
 
 .arranging {
@@ -165,6 +166,7 @@
   .images {
     margin: 0 0 0 0.3rem;
   }
+
   .imag {
     width: 15rem;
     height: 14rem;
@@ -175,12 +177,15 @@
   .nav {
     width: 25%;
   }
+
   .upload {
     width: 90%;
   }
+
   .images {
     margin: 0.3rem 0 0 0.3rem;
   }
+
   .imag {
     width: 11.6rem;
     height: 13rem;
@@ -194,6 +199,7 @@
     width: 100%;
     height: 100%;
   }
+
   .nav {
     display: flex;
     height: 13%;
@@ -201,30 +207,36 @@
     flex-direction: row;
     z-index: 1;
   }
+
   .heading {
     width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;
   }
+
   .headingInner {
     display: flex;
     width: 100%;
     height: 100%;
     flex-direction: row;
   }
+
   .snaplogo1 {
     display: flex;
     width: 25%;
     height: 100%;
     align-items: center;
   }
+
   .headingInner {
     flex-direction: row;
   }
+
   .snaplogo {
     align-items: center;
   }
+
   /* .icon {
         width:70px;
         height:70px;
@@ -238,38 +250,48 @@
     width: 80%;
     height: 100%;
   }
+
   .name {
     font-size: 25px;
   }
+
   .upload {
     height: 150%;
   }
+
   .uploaded {
     display: none;
   }
+
   .arranging {
     width: 0%;
     height: 0%;
   }
+
   .extra {
     width: 25%;
     flex-direction: row;
   }
+
   .Progress {
     padding-top: 0px;
   }
+
   .logout {
     width: 15%;
     height: 100%;
   }
+
   .rightdiv {
     width: 100%;
     height: 90%;
   }
+
   .imag {
     width: 11rem;
     height: 10rem;
   }
+
   .logout {
     background-color: #242526;
   }
@@ -279,29 +301,36 @@
   .nav {
     height: 10%;
   }
+
   .headingInner {
     flex-direction: row;
   }
+
   .upload {
     width: 70%;
     height: 160%;
   }
+
   .uptext {
     display: none;
   }
+
   .uplogo {
     width: 25px;
     height: 25px;
     display: block;
     fill: #fff;
   }
+
   .Progress {
     display: none;
   }
+
   .rightdiv {
     margin-left: 0;
     font-size: 13px;
   }
+
   .imag {
     width: 8.5rem;
     height: 8rem;
@@ -312,13 +341,16 @@
   .name {
     font-size: 20px;
   }
+
   .imag {
     width: 6rem;
     height: 6rem;
   }
+
   .logout {
     font-size: 13px;
   }
+
   .uplogo {
     width: 20px;
     height: 20px;

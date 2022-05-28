@@ -133,6 +133,10 @@
   cursor: pointer;
 }
 
+.forgotPassword {
+  cursor: pointer;
+}
+
 .register {
   color: #f5b301;
   font-size: larger;
@@ -143,19 +147,24 @@
   .image {
     width: 25%;
   }
+
   .icon {
     width: 100px;
     height: 100px;
   }
+
   .snapshots {
     font-size: 300%;
   }
+
   .caption {
     font-size: 13px;
   }
+
   .welcome {
     font-size: 15px;
   }
+
   .rightInner {
     height: 70%;
     width: 70%;
@@ -166,24 +175,30 @@
   .title {
     height: 60%;
   }
+
   .icon {
     width: 90px;
     height: 90px;
   }
+
   .titleInner {
     padding-left: 20px;
     padding-top: 0px;
   }
+
   .snapshots {
     font-size: 250%;
   }
+
   .caption {
     font-size: 10px;
   }
+
   .welcome {
     padding-top: 19px;
     font-size: 13px;
   }
+
   .rightInner {
     width: 80%;
     height: 70%;
@@ -194,51 +209,63 @@
   .main {
     flex-direction: column;
   }
+
   .leftDiv {
     width: 100%;
     height: 20%;
     align-items: end;
   }
+
   .leftInner {
     width: 40%;
     height: 60%;
   }
+
   .title {
     width: 100%;
     height: 100%;
   }
+
   .icon {
     margin-left: -10px;
     width: 70px;
     height: 70px;
   }
+
   .caption {
     width: 95%;
     height: 0%;
     visibility: hidden;
   }
+
   .welcome {
     padding: 0px;
   }
+
   .rightDiv {
     width: 100%;
     height: 80%;
     justify-content: center;
     align-items: center;
   }
+
   .rightInner {
     width: 55%;
     height: 75%;
   }
+
   .logo {
     height: 25%;
   }
+
   .snaplogo {
     margin-bottom: -20px;
   }
+
   .credentials {
     height: 75%;
   }
+
   .in1 {
     width: 70%;
     padding: 10px;
@@ -250,35 +277,44 @@
     height: 30%;
     align-items: center;
   }
+
   .leftInner {
     width: 70%;
   }
+
   .welcome {
     font-size: 12px;
   }
+
   .snapshots {
     font-size: 230%;
   }
+
   .icon {
     margin-left: 0;
     width: 65px;
     height: 65px;
   }
+
   .rightDiv {
     height: 70%;
     align-items: start;
   }
+
   .rightInner {
     width: 80%;
     height: 90%;
   }
+
   .logo {
     height: 30%;
   }
+
   .snaplogo {
     width: 70px;
     height: 70px;
   }
+
   .in1 {
     padding: 10px;
     width: 75%;
@@ -289,6 +325,7 @@
   .leftInner {
     width: 87%;
   }
+
   .rightInner {
     width: 90%;
   }

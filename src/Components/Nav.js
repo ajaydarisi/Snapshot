@@ -3,8 +3,14 @@ import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
 import Snaplogo from "../Images/SNAPLOGO.png";
 import { db, storage } from "./Firebase.js";
-import { getAuth, signOut, sendPasswordResetEmail } from "firebase/auth";
-import { doc, setDoc, collection, getDocs } from "firebase/firestore";
+import { getAuth, signOut } from "firebase/auth";
+import {
+  doc,
+  setDoc,
+  collection,
+  getDocs,
+  updateDoc,
+} from "firebase/firestore";
 import { useAuth } from "./Firebase.js";
 import "./home.css";
 
@@ -63,9 +69,21 @@ function Nav() {
             date: date,
           };
           await setDoc(doc(db, currentUser.email, file.name), imageurl);
+          fun1();
         });
       }
     );
+  };
+
+  const changeName = async () => {
+    const result = prompt("Change your name");
+    if (result) {
+      const washingtonRef = doc(db, currentUser.email, "credentials");
+      await updateDoc(washingtonRef, {
+        name: result,
+      });
+      fun1();
+    }
   };
 
   const signout = () => {
@@ -80,26 +98,6 @@ function Nav() {
         // An error happened.
         console.log(error);
       });
-  };
-
-  const forgotPassword = () => {
-    const result = window.confirm("Do you want to reset your password?");
-    if (result) {
-      sendPasswordResetEmail(auth, currentUser.email)
-        .then(() => {
-          // Password reset email sent!
-          console.log("Mail sent");
-            alert("Reset mail sent to your Email");
-          //   setMessage("Reset mail sent");
-          // ..
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-          // ..
-        });
-    }
   };
 
   return (
@@ -117,7 +115,9 @@ function Nav() {
           </div>
           <div className="text">
             <div>
-              <h1 className="name">{name}</h1>
+              <h1 className="name" onClick={changeName}>
+                {name}
+              </h1>
             </div>
             <div>
               {" "}
@@ -152,9 +152,6 @@ function Nav() {
         </div>
       </div>
       <div className="arranging"></div>
-      <div className="logout" onClick={forgotPassword}>
-        Reset
-      </div>
       <div className="logout" onClick={signout}>
         Logout
       </div>

@@ -1,5 +1,9 @@
 import { React, useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  sendPasswordResetEmail,
+} from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../Images/SNAPLOGO.png";
 import Icon from "../Images/Icon.png";
@@ -32,6 +36,26 @@ function Login() {
     //It triggers by pressing the enter key
     if (e.code === "Enter") {
       Submit();
+    }
+  };
+
+  const forgotPassword = () => {
+    const result = window.prompt("Enter your Email:");
+    if (result) {
+      sendPasswordResetEmail(auth, result)
+        .then(() => {
+          // Password reset email sent!
+          console.log("Mail sent");
+          alert("Reset link sent to your Email");
+          //   setMessage("Reset mail sent");
+          // ..
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+          // ..
+        });
     }
   };
 
@@ -99,6 +123,9 @@ function Login() {
             <button className="submit" onClick={Submit}>
               <span className="login">Login</span>
             </button>
+            <p className="forgotPassword" onClick={forgotPassword}>
+              Forgot Password?
+            </p>
             <p>
               New User? &nbsp;
               <Link to="/register">

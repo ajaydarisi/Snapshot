@@ -27,10 +27,12 @@
   .LoginToView {
     font-size: 60px;
   }
+
   .loginbutton {
     padding: 20px 70px;
     font-size: 30px;
   }
+
   .titleInner {
     justify-content: center;
   }
@@ -46,9 +48,11 @@
   .leftDiv {
     align-items: end;
   }
+
   .rightDiv {
     align-items: center;
   }
+
   .LoginToView {
     font-size: 20px;
   }

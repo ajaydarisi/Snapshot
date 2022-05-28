@@ -16,7 +16,6 @@ function Expand() {
   };
 
   const deleteimage = () => {
-    console.log("Delete image started");
     const desertRef = ref(
       storage,
       `${location.state.email}/${location.state.filename}`
@@ -26,7 +25,6 @@ function Expand() {
     deleteObject(desertRef)
       .then(async () => {
         await deleteDoc(doc(db, location.state.email, location.state.filename));
-        console.log("Deleted");
         navigate("/");
       })
       .catch((error) => {

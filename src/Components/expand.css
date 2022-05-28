@@ -70,6 +70,7 @@ path {
     width: 50px;
     height: 50px;
   }
+
   .delete {
     padding: 15px 25px;
   }
@@ -79,16 +80,20 @@ path {
   .details {
     height: 7%;
   }
+
   .download {
     width: 100%;
   }
+
   .bigimage {
     height: 92%;
   }
+
   .downloadicon {
     width: 40px;
     height: 40px;
   }
+
   .date {
     font-size: 22px;
   }
@@ -98,6 +103,7 @@ path {
   .date {
     font-size: 18px;
   }
+
   .downloadicon {
     width: 60%;
     height: 60%;
