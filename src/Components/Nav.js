@@ -19,12 +19,18 @@ function Nav() {
   let navigate = useNavigate();
   const currentUser = useAuth();
   var [files, setFiles] = useState(0);
+  var [fileWord, setFileWord] = useState("files");
   var [name, setName] = useState("Loading");
   const [progresspercent, setProgresspercent] = useState(0);
 
   const fun1 = async () => {
     const querySnapshot = await getDocs(collection(db, currentUser.email));
     setFiles(Number(querySnapshot.docs.length) - 1);
+    console.log(Number(querySnapshot.docs.length));
+    if(querySnapshot.docs.length === 2)
+      setFileWord("file");
+    else
+      setFileWord("files");
     querySnapshot.forEach((doc) => {
       if (doc.data().name) {
         setName(doc.data().name);
@@ -128,7 +134,7 @@ function Nav() {
             <div>
               {" "}
               <p className="files">
-                <span className="files count">{files}</span> files
+                <span className="files count">{files}</span> {fileWord}
               </p>
             </div>
           </div>
