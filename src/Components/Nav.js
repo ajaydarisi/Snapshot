@@ -36,9 +36,15 @@ function Nav() {
     fun1();
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const file = e.target.files[0];
+  const uploadSnaps = (e) => {
+      e.preventDefault();
+      for(let i=0;i<e.target.files.length;i++) {
+        var imageFile = e.target.files[i];
+        handleSubmit(imageFile);
+      }
+  }
+
+  const handleSubmit = (file) => {
     var date =
       file.lastModifiedDate.getDate() +
       "-" +
@@ -134,8 +140,9 @@ function Nav() {
                   type="file"
                   accept="image/*"
                   onChange={(event) => {
-                    handleSubmit(event);
+                    uploadSnaps(event);
                   }}
+                multiple
                 />
                 <span className="uptext">UPLOAD</span>
                 <span className="uplogo">
