@@ -19,7 +19,7 @@ function Nav() {
   let navigate = useNavigate();
   const currentUser = useAuth();
   var [files, setFiles] = useState(0);
-  var [name, setName] = useState("User");
+  var [name, setName] = useState("Loading");
   const [progresspercent, setProgresspercent] = useState(0);
 
   const fun1 = async () => {

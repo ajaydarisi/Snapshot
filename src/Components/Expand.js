@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ref, deleteObject } from "firebase/storage";
 import { db, storage } from "./Firebase.js";
@@ -9,6 +9,7 @@ import "./home.css";
 
 function Expand() {
   let navigate = useNavigate();
+  const [deleteMsg,setDeleteMsg] = useState("Delete");
   const location = useLocation();
 
   const save = () => {
@@ -16,6 +17,7 @@ function Expand() {
   };
 
   const deleteimage = () => {
+    setDeleteMsg("Deleting");
     const desertRef = ref(
       storage,
       `${location.state.email}/${location.state.filename}`
@@ -45,8 +47,8 @@ function Expand() {
           </div>
           <div className="filenamediv"></div>
         </div>
-        <div className="download" onClick={save}>
-          <svg
+        <div className="download">
+          <svg onClick={save}
             className="downloadicon"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 640 512"
@@ -56,7 +58,7 @@ function Expand() {
             />
           </svg>
           <button className="delete" onClick={deleteimage}>
-            Delete
+            {deleteMsg}
           </button>
         </div>
       </div>
