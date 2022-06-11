@@ -28,6 +28,7 @@ function Expand() {
       .then(async () => {
         await deleteDoc(doc(db, location.state.email, location.state.filename));
         navigate("/");
+        setDeleteMsg("Delete");
       })
       .catch((error) => {
         console.log(error);

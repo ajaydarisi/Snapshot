@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { db } from "./Firebase.js";
+import { ref, deleteObject } from "firebase/storage";
+import { db, storage } from "./Firebase.js";
 import { collection, getDocs } from "firebase/firestore";
+import { doc, deleteDoc } from "firebase/firestore";
 import "./home.css";
 import { useAuth } from "./Firebase.js";
 
@@ -11,6 +13,7 @@ function Home() {
   var [data, setData] = useState([]);
   var [files, setFiles] = useState(0);
   var [name, setName] = useState("User");
+  const [deleteMsg,setDeleteMsg] = useState("Delete All");
 
   const fun1 = async () => {
     var data1 = [];
@@ -42,9 +45,40 @@ function Home() {
     });
   };
 
+  const deleteAll = () => {
+    if(data.length) {
+      setDeleteMsg("Deleting");
+      for(let i = 0; i < data.length; i++) {
+        deleteimage(data[i].filename);
+      }
+    }
+    setDeleteMsg("Delete All");
+    fun1();
+  }
+
+  const deleteimage = (filename) => {
+    const desertRef = ref(
+      storage,
+      `${currentUser.email}/${filename}`
+    );
+
+    // Delete the file
+    deleteObject(desertRef)
+      .then(async () => {
+        await deleteDoc(doc(db, currentUser.email, filename));
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="rightdiv">
       <h1 className="yourImages">{files ? "Your Images" : "No Images"}</h1>
+      <button className="delete" onClick={deleteAll}>
+            {deleteMsg}
+          </button>
       <div className="cards">
         {data.map((l) =>
           l.imageURL ? (
