@@ -47,13 +47,15 @@ function Home() {
 
   const deleteAll = () => {
     if(data.length) {
-      setDeleteMsg("Deleting");
-      for(let i = 0; i < data.length; i++) {
-        deleteimage(data[i].filename);
+      if(window.confirm("Do you want to delete all the files")) {
+        setDeleteMsg("Deleting");
+        for(let i = 0; i < data.length; i++) {
+          deleteimage(data[i].filename);
+        }
       }
+      fun1();
     }
     setDeleteMsg("Delete All");
-    fun1();
   }
 
   const deleteimage = (filename) => {
@@ -75,10 +77,12 @@ function Home() {
 
   return (
     <div className="rightdiv">
-      <h1 className="yourImages">{files ? "Your Images" : "No Images"}</h1>
-      <button className="delete" onClick={deleteAll}>
-            {deleteMsg}
-          </button>
+      <div className="header">
+        <h1 className="yourImages">{files ? "Your Images" : "No Images"}</h1>
+        <button className="delete1" onClick={deleteAll}>
+          {deleteMsg}
+        </button>
+      </div>
       <div className="cards">
         {data.map((l) =>
           l.imageURL ? (

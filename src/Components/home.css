@@ -123,6 +123,20 @@
   padding-left: 10px;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.delete1 {
+  all: unset;
+  padding: 10px;
+  color: white;
+  /* border-radius: 100px; */
+  background-color: #f5b301;
+  cursor: pointer;
+}
+
 .yourImages {
   padding-left: 20px;
   color: #f5b301;
