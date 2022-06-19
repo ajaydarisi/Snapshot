@@ -46,7 +46,7 @@ function Home() {
   };
 
   const deleteAll = () => {
-    if(data.length) {
+    if((data.length)-1) {
       if(window.confirm("Do you want to delete all the files")) {
         setDeleteMsg("Deleting");
         for(let i = 0; i < data.length; i++) {
@@ -54,6 +54,9 @@ function Home() {
         }
       }
       fun1();
+    }
+    else {
+      alert("Nothing to delete");
     }
     setDeleteMsg("Delete All");
   }
