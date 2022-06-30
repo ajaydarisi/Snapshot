@@ -10,8 +10,8 @@ function BeforeLogin() {
     <div>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/secret" element={<Signup />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Signup />} />
+        <Route path="/secret" element={<Register />} />
         <Route path="/*" element={<Redirect />} />
       </Routes>
     </div>

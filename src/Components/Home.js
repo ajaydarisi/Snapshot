@@ -11,6 +11,7 @@ function Home() {
   const currentUser = useAuth();
   let navigate = useNavigate();
   var [data, setData] = useState([]);
+  
   var [files, setFiles] = useState(0);
   var [name, setName] = useState("User");
   const [deleteMsg,setDeleteMsg] = useState("Delete All");
